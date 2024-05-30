@@ -17,25 +17,25 @@ signed main()
         cin>>v[i];
     for(i=2;i<=n-2;i++)//al doilea indice
     {
-        int maxia=-1, maxib=-1;
+        int maxia=-1, maxib=-1, ind;
         for(j=i+1;j<=n;j++)
         {
             if(v[j]>maxia)
-                maxia=v[j];
+                maxia=v[j],ind=j;
         }
         for(j=i+1;j<=n;j++)
         {
-            if(v[j]>maxib && maxia!=v[j])
+            if(v[j]>maxib && j!=ind)
                 maxib=v[j];
         }
         ans=-1;
         for(j=1;j<i;j++)
         {
-            if(v[i]^v[j]>ans)
-                ans=v[i]^v[j];
+            if((v[i]^v[j])>ans)
+                ans=(v[i]^v[j]);
         }
         int cv=maxia+maxib;
-        maxi=max(maxi,ans*(maxia+maxib));
+        maxi=max(maxi,1LL*ans*(maxia+maxib));
     }
     cout<<maxi;
     return 0;
